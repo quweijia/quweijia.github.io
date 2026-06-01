@@ -10,10 +10,33 @@ import { Contact } from "./components/Contact";
 import { MusicPlayer } from "./components/MusicPlayer";
 import { ScrollVideo } from "./components/ScrollVideo";
 import { useScreenScale } from "./hooks/useScreenScale";
+import { PasswordDialog } from "./components/PasswordDialog";
+import { useState, useEffect } from "react";
 
 export default function App() {
   // 4K 屏幕自适应缩放
   useScreenScale();
+  
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showPasswordDialog, setShowPasswordDialog] = useState(true);
+
+  useEffect(() => {
+    const stored = sessionStorage.getItem("portfolio_authenticated");
+    if (stored === "true") {
+      setIsAuthenticated(true);
+      setShowPasswordDialog(false);
+    }
+  }, []);
+
+  const handlePasswordConfirm = () => {
+    setIsAuthenticated(true);
+    setShowPasswordDialog(false);
+    sessionStorage.setItem("portfolio_authenticated", "true");
+  };
+
+  const handlePasswordClose = () => {
+    setShowPasswordDialog(false);
+  };
 
   return (
     <ThemeProvider>
@@ -43,6 +66,12 @@ export default function App() {
           <Contact />
         </main>
       </div>
+
+      <PasswordDialog
+        isOpen={showPasswordDialog && !isAuthenticated}
+        onClose={handlePasswordClose}
+        onConfirm={handlePasswordConfirm}
+      />
     </ThemeProvider>
   );
 }

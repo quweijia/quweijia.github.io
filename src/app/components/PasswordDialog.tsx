@@ -15,7 +15,7 @@ export function PasswordDialog({
 }: PasswordDialogProps) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const CORRECT_PASSWORD = "123789";
+  const CORRECT_PASSWORD = "vicqu";
 
   useEffect(() => {
     if (isOpen) {
