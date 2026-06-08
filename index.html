@@ -7,26 +7,32 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   
   <!-- 👇 核心：社交分享缩略图 + 描述（修改这里的图片路径） -->
+ <!-- 👇 修复1：替换为 完整HTTPS绝对路径 -->
   <meta property="og:title" content="曲维甲 AI 简历作品集" />
-  <meta property="og:description" content="Create a professional AI-driven portfolio website for UI/UX designers, showcasing skills, projects, and contact information to enhance job applications." />
-  <!-- 你的本地分享图：public文件夹里的图片，直接写 /图片名.后缀 -->
-  <meta property="og:image" content="/share-image.png" /> 
+  <meta property="og:description" content="Create a professional AI-driven portfolio website for showcasing UI/UX design skills, projects and contact information." />
+  <!-- ✅ 关键修改：这里必须填完整线上地址 -->
+  <meta property="og:image" content="https://quweijia.is-a.dev/share-image.png" /> 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="zh_CN" />
+  <!-- 必须加图片宽度高度，微信强制要求 -->
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
-  <!-- Twitter / 微博 兼容标签 -->
+  <!-- 微博/推特 -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="曲维甲 AI 简历作品集" />
-  <meta name="twitter:description" content="Create a professional AI-driven portfolio website for UI/UX designers, showcasing skills, projects, and contact information to enhance job applications." />
-  <meta name="twitter:image" content="/share-image.png" />
+  <meta name="twitter:description" content="Create a professional AI-driven portfolio website for showcasing UI/UX design skills, projects and contact information." />
+  <meta name="twitter:image" content="https://quweijia.is-a.dev/share-image.png" />
 
-  <meta name="robots" content="noindex, nofollow" />
+  <!-- 👇 修复2：删除 noindex，允许微信抓取 -->
+  <meta name="robots" content="index, follow" />
   <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
   <script type="module" crossorigin src="/assets/index-BoQyqPa2.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-B8tRF1qj.css">
 </head>
 
 <body>
+  <img src="https://quweijia.is-a.dev/share-image.png" style="position: absolute; top: -9999px; left: -9999px; width: 350px; height: 350px;" alt="微信分享图" />
   <div id="root"></div>
 </body>
 </html>
